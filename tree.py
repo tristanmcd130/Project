@@ -19,7 +19,7 @@ for i in range(len(cols)):
 condensed = np.array(condensed)
 
 # perform hierarchical clustering (average linkage)
-Z = linkage(condensed, method="average")
+Z = linkage(condensed, method="ward", metric="euclidean")
 
 # dendrograms can"t be colored by individual branches, only by links
 colors = {
