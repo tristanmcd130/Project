@@ -75,24 +75,23 @@ print(edge_distances.to_string())
 
 # dendrograms can"t be colored by individual branches, only by links
 colors = {
-    "en": "r",
-    "da": "r",
-    "de": "r",
-    "el": "y",
-    "lt": "m",
-    "sv": "r",
-    "sk": "g",
-    "pl": "g",
-    "es": "b",
-    "nl": "r",
-    "sl": "g",
-    "pt": "b",
-    "lv": "m",
-    "cs": "g",
-    "bg": "g",
-    "ro": "b",
-    "it": "b",
-    "fr": "b"
+    "en": "g",
+    "sv": "g",
+    "da": "g",
+    "de": "g",
+    "nl": "g",
+    "ro": "r",
+    "fr": "r",
+    "it": "r",
+    "es": "r",
+    "pt": "r",
+    "lv": "b",
+    "lt": "b",
+    "pl": "b",
+    "sk": "b",
+    "cs": "b",
+    "sl": "b",
+    "bg": "b",
 }
 link_colors = {}
 for i, row in enumerate(Z):
@@ -107,7 +106,26 @@ for i, row in enumerate(Z):
 
 # plot dendrogram
 plt.figure(figsize=(12, 6))
-dendrogram(Z, labels=cols, orientation="left", link_color_func=lambda x: link_colors[x])
+CODE_TO_GOLD = {
+    "en": "English",
+    "sv": "Swedish",
+    "da": "Danish",
+    "de": "German",
+    "nl": "Dutch",
+    "ro": "Romanian",
+    "fr": "French",
+    "it": "Italian",
+    "es": "Spanish",
+    "pt": "Portuguese",
+    "lv": "Latvian",
+    "lt": "Lithuanian",
+    "pl": "Polish",
+    "sk": "Slovak",
+    "cs": "Czech",
+    "sl": "Slovenian",
+    "bg": "Bulgarian",
+}
+dendrogram(Z, labels=[CODE_TO_GOLD[code] for code in cols], orientation="left", link_color_func=lambda x: link_colors[x])
 plt.title("Indo-European Language Tree (Sentence Embedding Distances)")
 plt.tight_layout()
 plt.show()
