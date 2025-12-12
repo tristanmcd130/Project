@@ -1,0 +1,3 @@
+# HLCUSE: Hierarchical Language Clustering Using Sentence Embeddings
+
+In this project, we aimed to test a hypothesis: that multilingual sentence embedding models could encode genetic relationships between languages. We used a parallel corpus and measured the average angular distance between equivalent sentences in 17 different languages, then used the resulting distance matrix to hierarchically cluster these languages in an attempt to recreate the Indo-European family tree. Ultimately, we found that they can do this to some degree, but other computational methods people have proposed to do this can do it better because our approach doesn't capture any syntactic details of the text, only semantics. Read our report to learn more.
